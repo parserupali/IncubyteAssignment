@@ -16,6 +16,10 @@ class StringCalculator
     end
 
     operands = operands(numbers_part, Regexp.union(delimiter))
+
+    negatives = operands.select(&:negative?)
+    raise "Negative numbers not allowed: #{negatives.join(', ')}" if negatives.any?
+
     operands.sum
   end
 
