@@ -54,6 +54,13 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 6, result
   end
 
+  #{TC5 => TC5-1..}
+  def test_handle_digits_addition_with_specified_delimiter
+    calc = StringCalculator.new
+    result = calc.add("//;\n1;2")
+    assert_equal 3, result
+  end
+
 
 
 
