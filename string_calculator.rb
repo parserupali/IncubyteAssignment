@@ -1,5 +1,7 @@
 class StringCalculator
   def add(input)
-    0 if input.strip.empty?
+    return 0 if input.strip.empty?
+
+    input.to_i if input.length == 1 && input.match?(/\A\d+\z/)
   end
 end
