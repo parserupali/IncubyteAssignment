@@ -18,11 +18,11 @@ class StringCalculatorTest < Minitest::Test
   end
 
   def test_handle_single_character_string_input
-    assert_nil @calc.add(",")
+    assert_equal 0, @calc.add(",")
   end
 
   def test_handle_no_alphabet_character_string_input
-    assert_nil @calc.add("A")
+    assert_equal 0, @calc.add("A")
   end
 
    #{TC3 => TC3-1..TC3-6}
@@ -31,7 +31,7 @@ class StringCalculatorTest < Minitest::Test
   end
 
   def test_handle_more_than_one_character_string_input_by_comma
-    assert_nil @calc.add("A,B")
+    assert_equal 0, @calc.add("A,B")
   end
 
   #{TC4 => TC4-1..TC4-3}
@@ -70,6 +70,6 @@ class StringCalculatorTest < Minitest::Test
   end
 
   def test_handle_if_input_dont_have_digits
-    assert_nil @calc.add("//[*][%]\n")
+    assert_equal 0, @calc.add("//[*][%]\n")
   end
 end
