@@ -54,12 +54,20 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 6, result
   end
 
-  #{TC5 => TC5-1..}
+  #{TC5 => TC5-1..TC5-2}
   def test_handle_digits_addition_with_specified_delimiter
     calc = StringCalculator.new
     result = calc.add("//;\n1;2")
     assert_equal 3, result
   end
+
+  #{TC6 => TC6-1}
+  def test_handle_negative_digits
+    calc = StringCalculator.new
+    error = assert_raises(RuntimeError) { calc.add("1,-2,3") }
+    assert_equal "Negative numbers not allowed: -2", error.message
+  end
+
 
 
 
