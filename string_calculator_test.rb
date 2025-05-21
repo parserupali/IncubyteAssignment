@@ -75,6 +75,13 @@ class StringCalculatorTest < Minitest::Test
     assert_equal 1, result
   end
 
+  #{TC8 => TC8-1}
+  def test_handle_any_length_of_delimiter #{“//[***]\n1***2***3”}
+    calc = StringCalculator.new
+    result = calc.add("//[***]\n1***2***3")
+    assert_equal 6, result
+  end
+
 
 
 
