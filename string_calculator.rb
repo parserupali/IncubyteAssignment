@@ -7,15 +7,19 @@ class StringCalculator
       return input.match?(/\A\d+\z/) ? input.to_i : nil
     end
 
-    delimiters_regex = /[\n,]/
+    numbers_part = input
+    delimiter = ["\n", "\,"]
 
     if input.start_with?("//")
       delimiter_part, numbers_part = input.split("\n", 2)
       delimiter = delimiter_part[/\/\/(.*)/, 1]
-      delimiters_regex = Regexp.union(delimiter)
     end
 
-    operands = input.split(delimiters_regex).map(&:to_i)
+    operands = operands(numbers_part, Regexp.union(delimiter))
     operands.sum
+  end
+
+  def operands(numbers_part, delimiters_regex)
+    numbers_part.split(delimiters_regex).map(&:to_i)
   end
 end
