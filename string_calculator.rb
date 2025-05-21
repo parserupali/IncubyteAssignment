@@ -1,6 +1,7 @@
 class StringCalculator
   def add(input)
     return 0 if input.strip.empty?
+    return nil unless input =~ /\d/
     return nil unless input.match?(/\A[^a-zA-Z]*\z/)
     return (input.match?(/\A\d+\z/) ? input.to_i : nil) if input.length == 1
 

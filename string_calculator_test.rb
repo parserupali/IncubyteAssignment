@@ -8,29 +8,29 @@ class StringCalculatorTest < Minitest::Test
   end
 
   #{TC1 => TC1-1..TC1-5}
-  def test_handle_blank_string_imput
+  def test_handle_blank_string_input
     assert_equal 0, @calc.add("")
   end
 
    #{TC2 => TC2-1..TC2-5}
-  def test_handle_single_digit_string_imput
+  def test_handle_single_digit_string_input
     assert_equal 1, @calc.add("1")
   end
 
-  def test_handle_single_character_string_imput
+  def test_handle_single_character_string_input
     assert_nil @calc.add(",")
   end
 
-  def test_handle_no_alphabet_character_string_imput
+  def test_handle_no_alphabet_character_string_input
     assert_nil @calc.add("A")
   end
 
    #{TC3 => TC3-1..TC3-6}
-  def test_handle_more_than_one_digit_string_imput_by_comma
+  def test_handle_more_than_one_digit_string_input_by_comma
     assert_equal 3, @calc.add("1,2")
   end
 
-  def test_handle_more_than_one_character_string_imput_by_comma
+  def test_handle_more_than_one_character_string_input_by_comma
     assert_nil @calc.add("A,B")
   end
 
@@ -62,5 +62,14 @@ class StringCalculatorTest < Minitest::Test
   #{TC8 => TC8-1}
   def test_handle_any_length_of_delimiter
     assert_equal 6, @calc.add("//[***]\n1***2***3")
+  end
+
+  #{TC9 => TC9-1}
+  def test_handle_any_length_of_multiple_delimiter
+    assert_equal 6, @calc.add("//[*][%]\n1*2%3")
+  end
+
+  def test_handle_if_input_dont_have_digits
+    assert_nil @calc.add("//[*][%]\n")
   end
 end
