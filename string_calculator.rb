@@ -20,7 +20,7 @@ class StringCalculator
     negatives = operands.select(&:negative?)
     raise "Negative numbers not allowed: #{negatives.join(', ')}" if negatives.any?
 
-    operands.sum
+    operands.reject { |n| n > 1000 }.sum
   end
 
   def operands(numbers_part, delimiters_regex)
