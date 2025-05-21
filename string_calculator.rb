@@ -7,7 +7,8 @@ class StringCalculator
       return input.match?(/\A\d+\z/) ? input.to_i : nil
     end
 
-    operands = input.split(',').map(&:to_i)
+    delimiters_regex = /[\n,]/
+    operands = input.split(delimiters_regex).map(&:to_i)
     operands.sum
   end
 end

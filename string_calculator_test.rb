@@ -41,12 +41,21 @@ class StringCalculatorTest < Minitest::Test
     assert_nil result
   end
 
-  #{TC4 => TC4-1..TC4-}
+  #{TC4 => TC4-1..TC4-3}
   def test_handle_new_line_as_a_delimiter
     calc = StringCalculator.new
     result = calc.add("1\n2")
     assert_equal 3, result
   end
+
+  def test_handle_new_line_as_a_delimiter_with_comma
+    calc = StringCalculator.new
+    result = calc.add("1\n2,3")
+    assert_equal 6, result
+  end
+
+
+
 
 
 
