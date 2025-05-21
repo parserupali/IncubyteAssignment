@@ -19,14 +19,29 @@ class StringCalculatorTest < Minitest::Test
   def test_handle_single_character_string_imput
     calc = StringCalculator.new
     result = calc.add(",")
-    assert_equal nil, result
+    assert_nil result
   end
 
   def test_handle_no_alphabet_character_string_imput
     calc = StringCalculator.new
     result = calc.add("A")
-    assert_equal nil, result
+    assert_nil result
   end
+
+   #{TC3 => TC3-1..TC3-5}
+  def test_handle_more_than_one_digit_string_imput_by_comma
+    calc = StringCalculator.new
+    result = calc.add("1,2")
+    assert_equal 3, result
+  end
+
+  def test_handle_more_than_one_character_string_imput_by_comma
+    calc = StringCalculator.new
+    result = calc.add("A,B")
+    assert_nil result
+  end
+
+
 
 
 end
