@@ -28,7 +28,7 @@ class StringCalculatorTest < Minitest::Test
     assert_nil result
   end
 
-   #{TC3 => TC3-1..TC3-5}
+   #{TC3 => TC3-1..TC3-6}
   def test_handle_more_than_one_digit_string_imput_by_comma
     calc = StringCalculator.new
     result = calc.add("1,2")
@@ -41,6 +41,12 @@ class StringCalculatorTest < Minitest::Test
     assert_nil result
   end
 
+  #{TC4 => TC4-1..TC4-}
+  def test_handle_new_line_as_a_delimiter
+    calc = StringCalculator.new
+    result = calc.add("1\n2")
+    assert_equal 3, result
+  end
 
 
 
