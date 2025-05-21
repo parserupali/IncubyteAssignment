@@ -8,6 +8,13 @@ class StringCalculator
     end
 
     delimiters_regex = /[\n,]/
+
+    if input.start_with?("//")
+      delimiter_part, numbers_part = input.split("\n", 2)
+      delimiter = delimiter_part[/\/\/(.*)/, 1]
+      delimiters_regex = Regexp.union(delimiter)
+    end
+
     operands = input.split(delimiters_regex).map(&:to_i)
     operands.sum
   end
