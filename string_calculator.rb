@@ -10,7 +10,10 @@ class StringCalculator
     numbers_part = input
     delimiter = ["\n", "\,"]
 
-    if input.start_with?("//")
+    if input.start_with?("//[")
+      delimiter_part, numbers_part = input.split("\n", 2)
+      delimiter = delimiter_part.scan(/\[(.+?)\]/).flatten
+    elsif input.start_with?("//")
       delimiter_part, numbers_part = input.split("\n", 2)
       delimiter = delimiter_part[/\/\/(.*)/, 1]
     end
